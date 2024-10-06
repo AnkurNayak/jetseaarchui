@@ -156,6 +156,7 @@ export const SearchboxSmall = ({ setOpen, type, isOpen }: SearchboxProps) => {
 // Vertical View : small screen
 export const InputDataVertical = () => {
   const [openType, setOpenType] = useState<string | null>(null);
+  const dispatch = useDispatch();
 
   const toggleAccordion = (type: string) => {
     setOpenType((prevType) => (prevType === type ? null : type));
@@ -178,7 +179,10 @@ export const InputDataVertical = () => {
           <div className="px-3 font-semibold flex gap-8 items-center border-b">
             <DateInput />
           </div>
-          <div className="relative flex p-2 items-center justify-center">
+          <div
+            className="relative flex p-2 items-center justify-center"
+            onClick={() => handleReload(dispatch)}
+          >
             <div className="h-8 w-8 bg-gray-300 absolute rounded-full"></div>
             <HiMiniMagnifyingGlass size={16} className="z-10" />
           </div>
